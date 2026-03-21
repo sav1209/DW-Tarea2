@@ -1023,6 +1023,7 @@ button {
 .contact__card {
     /* ERROR 18: La card de contacto no tiene el fondo degradado
        PISTA: Falta la propiedad background con el gradiente primario */
+    background: var(--gradient-primary);
     border-radius: var(--border-radius-xl);
     padding: var(--spacing-2xl);
     text-align: center;
@@ -1094,6 +1095,7 @@ button {
     background: var(--color-bg-tertiary);
     /* ERROR 17: Los iconos de redes sociales son cuadrados en vez de círculos
        PISTA: Falta una propiedad de borde para hacer elementos circulares */
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
