@@ -786,6 +786,7 @@ button {
    Los selectores específicos como --github necesitan definir su propio color */
 .social__icon--github {
     background: rgba(255, 255, 255, 0.1);
+    color: var(--color-text-primary);
 }
 
 .social__icon--email {
@@ -827,6 +828,7 @@ button {
 .projects__grid {
     /* ERROR 14: Los proyectos no se muestran en columnas, solo apilados
        PISTA: Falta definir cómo se distribuyen las columnas en el grid */
+    grid-template-columns: repeat(3, 1fr);
     display: grid;
     gap: var(--spacing-xl);
 }
