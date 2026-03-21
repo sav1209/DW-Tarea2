@@ -565,6 +565,7 @@ button {
     border: 1px solid var(--color-bg-tertiary);
     /* ERROR 11: Las cards de intereses tienen esquinas puntiagudas en vez de redondeadas
        PISTA: Falta la propiedad border-radius */
+    border-radius: var(--border-radius-xl);
     padding: var(--spacing-xl);
     transition: all var(--transition-base);
     position: relative;
@@ -584,6 +585,7 @@ button {
        SOLUCIÓN: Falta la transición para la propiedad transform
        Agregar: transition: transform var(--transition-base);
        El pseudoelemento ::before necesita su propia transición para animar el scaleX */
+    transition: transform var(--transition-base);
 }
 
 .interest__card:hover {
