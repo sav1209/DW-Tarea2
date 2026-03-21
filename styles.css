@@ -330,6 +330,7 @@ button {
        SOLUCIÓN: Falta la transición para la propiedad width
        Agregar: transition: width var(--transition-base);
        Esto hace que la línea se expanda suavemente al hacer hover */
+    transition: width var(--transition-base);
 }
 
 .nav__link:hover,
@@ -432,6 +433,7 @@ button {
     display: flex;
     /* ERROR 8: Los botones del hero están pegados sin espacio entre ellos
        PISTA: Falta la propiedad que define el espacio entre elementos flex */
+    gap: var(--spacing-md);
     flex-wrap: wrap;
 }
 
