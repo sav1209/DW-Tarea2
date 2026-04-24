@@ -2,70 +2,90 @@ import React from 'react';
 import styles from './Contact.module.css';
 import Link from 'next/link';
 
-export default function Projects() {
+export default function Contact() {
+    const sectionContent = {
+        subtitle: '¿Tienes un proyecto?',
+        title: '¡Hablemos!',
+        description:
+            'Estoy disponible para oportunidades laborales, proyectos freelance o simplemente para conectar. ¡No dudes en contactarme!',
+    };
+
+    const contactItems = [
+        {
+            iconClassName: 'fas fa-envelope',
+            label: 'Email',
+            value: 'saul9084@gmail.com',
+            href: 'mailto:saul9084@gmail.com',
+        },
+        {
+            iconClassName: 'fas fa-map-marker-alt',
+            label: 'Ubicación',
+            value: 'Estado de México, México',
+        },
+        {
+            iconClassName: 'fas fa-briefcase',
+            label: 'Disponibilidad',
+            value: 'Disponible para trabajar',
+            isAvailable: true,
+        },
+    ];
+
+    const ctaContent = {
+        title: '¿Listo para comenzar?',
+        description: 'Envíame un mensaje y te responderé lo antes posible.',
+        buttonLabel: 'Enviar mensaje',
+        buttonHref: 'mailto:saul9084@gmail.com',
+    };
+
     return (
-        <></>
-        // <section class="contact section" id="contact">
-        //     <div class="container">
-        //         <div class="contact__content">
-        //             <div class="contact__info">
-        //                 <span class="section__subtitle">¿Tienes un proyecto?</span>
-        //                 <h2 class="section__title">¡Hablemos!</h2>
-        //                 <p class="contact__description">
-        //                     Estoy disponible para oportunidades laborales, proyectos freelance 
-        //                     o simplemente para conectar. ¡No dudes en contactarme!
-        //                 </p>
-                        
-        //                 <div class="contact__data">
-        //                     <div class="contact__item">
-        //                         <div class="contact__icon">
-        //                             <i class="fas fa-envelope"></i>
-        //                         </div>
-        //                         <div class="contact__text">
-        //                             <span class="contact__label">Email</span>
-        //                             <a href="mailto:tu@email.com" class="contact__value">saul9084@gmail.com</a>
-        //                         </div>
-        //                     </div>
-                            
-        //                     <!-- ERROR 8: Este icono de ubicación no se muestra correctamente
-        //                          PISTA: La clase del icono está incompleta, revisa el nombre del icono de Font Awesome -->
-        //                     <div class="contact__item">
-        //                         <div class="contact__icon">
-        //                             <i class="fas fa-map-marker-alt"></i>
-        //                         </div>
-        //                         <div class="contact__text">
-        //                             <span class="contact__label">Ubicación</span>
-        //                             <span class="contact__value">Estado de México, México</span>
-        //                         </div>
-        //                     </div>
-                            
-        //             <!-- ERROR 9: El texto "Disponible para trabajar" no tiene el estilo verde
-        //                  PISTA: Falta el modificador de clase que indica disponibilidad -->
-        //                     <div class="contact__item">
-        //                         <div class="contact__icon">
-        //                             <i class="fas fa-briefcase"></i>
-        //                         </div>
-        //                         <div class="contact__text">
-        //                             <span class="contact__label">Disponibilidad</span>
-        //                             <span class="contact__value contact__value--available">Disponible para trabajar</span>
-        //                         </div>
-        //                     </div>
-        //                 </div>
-        //             </div>
-                    
-        //             <div class="contact__cta">
-        //                 <div class="contact__card">
-        //                     <h3 class="contact__card-title">¿Listo para comenzar?</h3>
-        //                     <p class="contact__card-text">
-        //                         Envíame un mensaje y te responderé lo antes posible.
-        //                     </p>
-        //                     <a href="mailto:saul9084@gmail.com" class="btn btn--primary btn--large btn--full">
-        //                         <i class="fas fa-paper-plane"></i> Enviar mensaje
-        //                     </a>
-        //                 </div>
-        //             </div>
-        //         </div>
-        //     </div>
-        // </section>
+        <section className={`section ${styles.contact ?? 'contact'}`} id="contact">
+            <div className="container">
+                <div className={styles.contact__content ?? 'contact__content'}>
+                    <div className="contact__info">
+                        <span className="section__subtitle">{sectionContent.subtitle}</span>
+                        <h2 className="section__title">{sectionContent.title}</h2>
+                        <p className={styles.contact__description ?? 'contact__description'}>{sectionContent.description}</p>
+
+                        <div className={styles.contact__data ?? 'contact__data'}>
+                            {contactItems.map((item) => (
+                                <div className={styles.contact__item ?? 'contact__item'} key={item.label}>
+                                    <div className={styles.contact__icon ?? 'contact__icon'}>
+                                        <i className={item.iconClassName}></i>
+                                    </div>
+                                    <div className="contact__text">
+                                        <span className={styles.contact__label ?? 'contact__label'}>{item.label}</span>
+                                        {item.href ? (
+                                            <Link href={item.href} className={styles.contact__value ?? 'contact__value'}>
+                                                {item.value}
+                                            </Link>
+                                        ) : (
+                                            <span
+                                                className={`${styles.contact__value ?? 'contact__value'} ${
+                                                    item.isAvailable
+                                                        ? (styles['contact__value--available'] ?? 'contact__value--available')
+                                                        : ''
+                                                }`.trim()}
+                                            >
+                                                {item.value}
+                                            </span>
+                                        )}
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    <div className="contact__cta">
+                        <div className={styles.contact__card ?? 'contact__card'}>
+                            <h3 className={styles['contact__card-title'] ?? 'contact__card-title'}>{ctaContent.title}</h3>
+                            <p className={styles['contact__card-text'] ?? 'contact__card-text'}>{ctaContent.description}</p>
+                            <Link href={ctaContent.buttonHref} className={`btn ${styles['btn--primary'] ?? 'btn--primary'} ${styles['btn--large'] ?? 'btn--large'} ${styles['btn--full'] ?? 'btn--full'}`}>
+                                <i className="fas fa-paper-plane"></i> {ctaContent.buttonLabel}
+                            </Link>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     );
 }
