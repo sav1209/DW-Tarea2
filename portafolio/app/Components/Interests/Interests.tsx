@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from './Interests.module.css';
-import Link from 'next/link';
 
 
 interface Interes {
@@ -65,8 +64,8 @@ export default function Interests() {
                 </div>
                 
                 <div className={styles.interests__grid}>
-                    {Intereses.map(interes =>(
-                        <article className={styles.interest__card}>
+                    {Intereses.map((interes, index) =>(
+                        <article className={styles.interest__card} key={index}>
                             <div className={styles.card__icon}>
                                 <i className={interes.icono}></i>
                             </div>
@@ -75,8 +74,8 @@ export default function Interests() {
                                 {interes.descripcion}
                             </p>
                             <div className={styles.card__tags}>
-                                {interes.etiquetas.map(etiqueta => (
-                                    <span className={styles.tag}>{etiqueta}</span>
+                                {interes.etiquetas.map((etiqueta, idx) => (
+                                    <span className={styles.tag} key={idx}>{etiqueta}</span>
                                 ))}
                             </div>
                         </article>
@@ -88,8 +87,8 @@ export default function Interests() {
                         <i className="fas fa-graduation-cap"></i> Materias Relevantes
                     </h3>
                     <div className={styles.subjects__list}>
-                        {Materias.map(materia => (
-                            <span className={styles.subject}>{materia}</span>
+                        {Materias.map((materia, idx) => (
+                            <span className={styles.subject} key={idx}>{materia}</span>
                         ))}
                     </div>
                 </div>
