@@ -1,0 +1,148 @@
+
+/* ========== INTERESTS SECTION ========== */
+.interests {
+    background: var(--color-bg-secondary);
+}
+
+.interests__grid {
+    display: grid;
+    /* ERROR 10: Las cards de intereses no se muestran en 3 columnas, están apiladas
+       PISTA: Falta la propiedad de CSS Grid que define las columnas */
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-3xl);
+}
+
+.interest__card {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-bg-tertiary);
+    /* ERROR 11: Las cards de intereses tienen esquinas puntiagudas en vez de redondeadas
+       PISTA: Falta la propiedad border-radius */
+    border-radius: var(--border-radius-xl);
+    padding: var(--spacing-xl);
+    transition: all var(--transition-base);
+    position: relative;
+    overflow: hidden;
+}
+
+.interest__card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--gradient-primary);
+    transform: scaleX(0);
+    /* ERROR 12 (AVANZADO): La línea superior de las cards aparece instantáneamente sin animación
+       SOLUCIÓN: Falta la transición para la propiedad transform
+       Agregar: transition: transform var(--transition-base);
+       El pseudoelemento ::before necesita su propia transición para animar el scaleX */
+    transition: transform var(--transition-base);
+}
+
+.interest__card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--color-primary);
+}
+
+.interest__card:hover::before {
+    transform: scaleX(1);
+}
+
+.card__icon {
+    width: 60px;
+    height: 60px;
+    background: rgba(14, 165, 233, 0.1);
+    border-radius: var(--border-radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-2xl);
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-lg);
+    transition: all var(--transition-base);
+}
+
+.interest__card:hover .card__icon {
+    background: var(--gradient-primary);
+    color: white;
+    transform: scale(1.1);
+}
+
+.card__title {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.card__description {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-lg);
+    line-height: 1.7;
+}
+
+.card__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+}
+
+.tag {
+    font-size: var(--font-size-xs);
+    font-weight: 500;
+    color: var(--color-primary);
+    background: rgba(14, 165, 233, 0.1);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--border-radius-full);
+}
+
+/* Subjects */
+.subjects {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-bg-tertiary);
+    border-radius: var(--border-radius-xl);
+    padding: var(--spacing-xl);
+    text-align: center;
+}
+
+.subjects__title {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+}
+
+.subjects__title i {
+    color: var(--color-secondary);
+}
+
+.subjects__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--spacing-md);
+}
+
+.subject {
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    background: var(--color-bg-tertiary);
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border-radius: var(--border-radius-full);
+    transition: all var(--transition-base);
+}
+
+.subject:hover {
+    background: var(--gradient-primary);
+    color: white;
+    transform: translateY(-2px);
+}
