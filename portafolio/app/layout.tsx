@@ -24,9 +24,22 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang="es"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
+    <head>
+        {/* <meta charset="UTF-8"> */}
+        {/* <meta name="viewport" content="width=device-width, initial-scale=1.0"> */}
+        {/* <meta name="description" content="Portfolio de Saúl - Ingeniero en Tecnologías de la Información"> */}
+        {/* <title>Saúl | Portfolio</title> */}
+        
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+        
+    </head>
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );

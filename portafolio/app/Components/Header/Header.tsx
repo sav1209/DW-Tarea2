@@ -12,15 +12,15 @@ export default function Header() {
                     <span className={styles.logo__bracket}>&lt;</span>{HeaderData}<span className={styles.logo__bracket}>/&gt;</span>
                 </Link>
                 
-                <input type="checkbox" id="nav-toggle" className={styles.nav__checkbox}></input>
+                <input type="checkbox" id="nav-toggle" className={styles.nav__checkbox} />
 
                 <label htmlFor="nav-toggle" className={styles.nav__toggle}>
-                    <i className={`fa-bars ${styles.fas}`}></i>
+                    <i className={`fas fa-bars`}></i>
                 </label>
                 
                 <div className={styles.nav__menu} id="nav-menu">
                     <label htmlFor="nav-toggle" className={styles.nav__close}>
-                        <i className={`fa-times ${styles.fas}`}></i>
+                        <i className={`fas fa-times`}></i>
                     </label>
                     
                     <ul className={styles.nav__list}>
