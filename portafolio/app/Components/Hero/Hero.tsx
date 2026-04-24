@@ -5,6 +5,7 @@ import Link from 'next/link';
 let Nombre:String = 'Saúl Villeda López'
 let Puesto:String = 'Ingeniero de Software'
 let Descripcion:String = 'Estudiante de Matemáticas Aplicadas y Computación y apasionado por crear soluciones tecnológicas innovadoras.'
+
 export default function Hero() {
     return (
         <section className={`section ${styles.hero}`} id="home">
@@ -49,5 +50,5 @@ export default function Hero() {
                 </Link>
             </div>
         </section>
-    )
+    );
 }

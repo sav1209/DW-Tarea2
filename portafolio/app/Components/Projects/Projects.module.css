@@ -1,0 +1,124 @@
+/* ========== PROJECTS SECTION ========== */
+.projects {
+    background: var(--color-bg-secondary);
+}
+
+.projects__grid {
+    /* ERROR 14: Los proyectos no se muestran en columnas, solo apilados
+       PISTA: Falta definir cómo se distribuyen las columnas en el grid */
+    grid-template-columns: repeat(3, 1fr);
+    display: grid;
+    gap: var(--spacing-xl);
+}
+
+.project__card {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-bg-tertiary);
+    border-radius: var(--border-radius-xl);
+    overflow: hidden;
+    transition: all var(--transition-base);
+}
+
+.project__card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--color-primary);
+}
+
+.project__image {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.project__placeholder {
+    width: 100%;
+    height: 100%;
+    background: var(--gradient-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    color: white;
+    opacity: 0.8;
+}
+
+.project__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(15, 23, 42, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-md);
+    opacity: 0;
+    transition: opacity var(--transition-base);
+}
+
+/* ERROR 15 (AVANZADO): El overlay de los proyectos no aparece al hacer hover
+   SOLUCIÓN: El selector está mal escrito, debería ser .project__card:hover .project__overlay
+   El selector correcto utiliza :hover en el contenedor padre para afectar al hijo
+   Cambiar project__card-hover por .project__card:hover */
+.project__card:hover .project__overlay {
+    opacity: 1;
+}
+
+.project__link {
+    width: 50px;
+    height: 50px;
+    background: var(--color-bg-tertiary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-lg);
+    color: var(--color-text-primary);
+    transition: all var(--transition-base);
+}
+
+.project__link:hover {
+    background: var(--color-primary);
+    color: white;
+    transform: scale(1.1);
+}
+
+.project__content {
+    padding: var(--spacing-xl);
+}
+
+.project__title {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.project__description {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-lg);
+    line-height: 1.7;
+}
+
+.project__tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+}
+
+.tech {
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    color: var(--color-secondary);
+    background: rgba(139, 92, 246, 0.1);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--border-radius-sm);
+}
+
+.projects__more {
+    text-align: center;
+    margin-top: var(--spacing-3xl);
+}
